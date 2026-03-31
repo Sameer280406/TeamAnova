@@ -5,6 +5,8 @@ import seaborn as sns
 from scipy.stats import f_oneway
 df = pd.read_csv('/content/drive/MyDrive/Colab_Notebooks/datasets/student_performance.csv')
 df.head()
+df.shape
+df.info()
 data = df[['Hours_Studied', 'Attendance', 'Sleep_Hours', 'Motivation_Level', 'Exam_Score']]
 data.head()
 data['Sleep_Category'] = pd.cut(
