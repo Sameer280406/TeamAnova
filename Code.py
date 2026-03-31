@@ -25,3 +25,17 @@ data['Attendance_Level'] = pd.cut(
     labels=['Low','Medium','High']
 )
 final_data = data.drop(['Hours_Studied', 'Attendance', 'Sleep_Hours'], axis=1)
+
+factor = "Motivation_Level"
+target = "Exam_Score"
+groups = [group[target].values for name, group in final_data.groupby(factor)]
+group_names = final_data[factor].unique()
+
+##darshan commit(first)->
+factor = "Motivation_Level"
+target = "Exam_Score"
+groups = [group[target].values for name, group in final_data.groupby(factor)]
+group_names = final_data[factor].unique()
+
+
+
