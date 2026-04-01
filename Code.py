@@ -25,4 +25,49 @@ data['Attendance_Level'] = pd.cut(
     labels=['Low','Medium','High']
 )
 final_data = data.drop(['Hours_Studied', 'Attendance', 'Sleep_Hours'], axis=1)
+<<<<<<< HEAD
 final_data.head()
+=======
+
+factor = "Motivation_Level"
+target = "Exam_Score"
+groups = [group[target].values for name, group in final_data.groupby(factor)]
+group_names = final_data[factor].unique()
+
+##darshan commit(first)->
+factor = "Motivation_Level"
+target = "Exam_Score"
+groups = [group[target].values for name, group in final_data.groupby(factor)]
+group_names = final_data[factor].unique()
+
+##darshan commit(second)->
+group_means = [np.mean(g) for g in groups]
+overall_mean = np.mean(np.concatenate(groups))
+n_i = [len(g) for g in groups]
+k = len(groups)
+N = sum(n_i)
+# SSB
+SSB = sum(n_i[i] * (group_means[i] - overall_mean)**2 for i in range(k))
+# SSW
+SSW = sum(sum((x - group_means[i])**2 for x in groups[i]) for i in range(k))
+# Degrees of freedom
+df_between = k - 1
+df_within = N - k
+# MS
+MSB = SSB / df_between
+MSW = SSW / df_within
+# F
+F_stat, p_value = f_oneway(*groups)
+print("SSB:", SSB)
+print("SSW:", SSW)
+print("MSB:", MSB)
+print("MSW:", MSW)
+print("F-statistic:", F_stat)
+print("p-value:", p_value)
+
+
+
+
+
+
+>>>>>>> 7b58e8e4db71509f9e4974f711a9c6ed2baeaece
