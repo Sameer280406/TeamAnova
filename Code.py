@@ -25,3 +25,4 @@ data['Attendance_Level'] = pd.cut(
     labels=['Low','Medium','High']
 )
 final_data = data.drop(['Hours_Studied', 'Attendance', 'Sleep_Hours'], axis=1)
+final_data.head()
