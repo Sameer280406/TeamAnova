@@ -64,7 +64,24 @@ print("MSB:", MSB)
 print("MSW:", MSW)
 print("F-statistic:", F_stat)
 print("p-value:", p_value)
-
+plt.figure(figsize=(10,6))
+for i, g in enumerate(groups):
+    mean = np.mean(g)
+    std = np.std(g)
+    x = np.linspace(min(df[target]), max(df[target]), 200)
+    y = norm.pdf(x, mean, std)
+    # Curve
+    plt.plot(x, y, color=colors[i], label=f"{group_names[i]}")
+    # Mean line
+    plt.axvline(mean, color=colors[i], linestyle='--')
+# Overall mean
+plt.axvline(overall_mean, color='black', linewidth=2, label='Overall Mean')
+plt.title(f"Overlapping Distributions of {target} by {factor}")
+plt.xlabel("Exam Score")
+plt.ylabel("Density")
+plt.legend()
+plt.grid(alpha=0.3)
+plt.show()
 
 
 
