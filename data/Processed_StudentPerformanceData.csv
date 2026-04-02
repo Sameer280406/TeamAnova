@@ -1,4 +1,4 @@
-Motivation_Level,Exam_Score,Sleep_Level,Study_Level,Attendance_Level
+Motivation_Level,Exam_Score,Sleep_Category,Study_Level,Attendance_Level
 Low,67,Medium,Medium,High
 Low,61,High,Low,Medium
 Medium,74,Medium,Medium,High
